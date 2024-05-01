@@ -36,23 +36,25 @@
       <img src="/blood_drop_search.gif" alt="logo" />
     </div>
     <div class="options">
-      <a href="/index.html" >Home</a>
-      <a href="/new sign up.html"  id="donor">Donor form</a>
-      <a href="/about.html" >About us</a>
-      <a href="/receptor.html" >Receptor</a>
-      <a href="/Contact.html" >contact</a>
-      <button id="signIn" style="position: relative; bottom: 8px;">More</button>
+      <a href="/index.html" target="_main">Home</a>
+      <a href="/new sign up.html" target="_main">Find Donor</a>
+      <a href="/about.html" target="_main">About us</a>
+      <a href="fetch.html">Receptor</a>
+      <a href="/Contact.html" target="_main">contact</a>
+      <button id="signIn">feedback</button>
       <i class="ri-menu-line"></i>
     </div>
   </div>
 
 
-  <form action="index2.php" method="post"  id="donorForm">
-    
-    <h2><b style="color: red; font-weight: 700; display: flex; justify-content: center; text-decoration: none;">Donor form</b></h2>
-    
+  <form
+    action="https://script.google.com/macros/s/AKfycbxRiuZ0zHjOgsYkrmBGUA1rkCopdU4uJuSGQQ3kUetoHDkO6MW_3b72ybtDF097Yzie/exec"
+    method="post" id="donorForm">
+    <center>
+      <h2><u><b>Donor form</b></u></h2>
+    </center>
     <label for="name">Name:</label>
-    <input type="text" name="name" required><br>
+    <input type="text" name="fname" required><br>
     <label for="age">Age:</label>
     <input type="number" name="age" required><br>
     <label for="gender">Gender:</label>
@@ -80,15 +82,10 @@
     <input type="email" name="email" required><br>
 
 
-
-    
-
-
-
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
       <select class="form-control" id="inputState" name="State">
-        
+
         <option value="SelectState">Select State</option>
         <option value="Andra Pradesh">Andra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -132,11 +129,16 @@
     <div class="form-group col-md-4">
       <label for="inputDistrict">District</label>
       <select class="form-control" id="inputDistrict" name="District">
-        
+
         <option value="">-- select one -- </option>
       </select>
     </div>
-    <a href="/submitted.html"><input  type="submit" value="submit" name="Submit" style="margin-left: 206px;  background-color: rgb(255, 0, 0); color: white; border-radius: 10px; width: 130px; height: 35px; "></a>
+    <!-- <input type="submit" value="submit" name="Submit"
+      style="margin-left: 206px;  background-color: rgb(255, 0, 0); color: white; border-radius: 10px; width: 130px; height: 35px; "> -->
+
+
+    <button type="submit" id="submitButton"
+      style="margin-left: 206px; background-color: rgb(255, 0, 0); color: white; border-radius: 10px; width: 130px; height: 35px;">Submit</button>
 
   </form>
 
@@ -192,7 +194,7 @@
       Map</p>
   </footer>
 
-  
+
   </div>
   </div>
 
@@ -200,6 +202,43 @@
 
 
   <script>
+
+
+
+    // Add an event listener to the form submission event
+    document.getElementById("donorForm").addEventListener("submit", function (event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Get the form data
+      var formData = new FormData(this);
+      // Make a POST request to the specified API
+      fetch('https://script.google.com/macros/s/AKfycbxRiuZ0zHjOgsYkrmBGUA1rkCopdU4uJuSGQQ3kUetoHDkO6MW_3b72ybtDF097Yzie/exec', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            // If the submission is successful, redirect to the submitted.html page
+            window.location.href = "/submitted.html";
+          } else {
+            // Handle errors if any
+            console.error('Form submission failed:', response.status);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+
+
+
+
+
+
+
+
+
     var AndraPradesh = ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Prakasam", "Nellore", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"];
     var ArunachalPradesh = ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Subansiri", "Namsai", "Papum Pare", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang", "Itanagar"];
     var Assam = ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup (Rural)", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"];

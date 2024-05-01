@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>recevier</title>
     <link rel="stylesheet" href="recevier.css">
 </head>
+
 <body>
     <div class="nav">
         <div class="logo">
-          <img src="/blood_drop_search.gif" alt="logo" />
+            <img src="/blood_drop_search.gif" alt="logo" />
         </div>
         <div class="options">
-          <a href="/index.html" target="_main">Home</a>
-          <a href="/new sign up.html" target="_main">Donor</a>
-          <a href="/about.html" target="_main">About us</a>
-          <a href="/receptor.html" style="color: black;">Receptor</a>
-          <a href="/Contact.html" target="_main">Contact</a>
-          <button id="signIn">more</button>
-          <i class="ri-menu-line"></i>
+            <a href="/index.html" target="_main">Home</a>
+            <a href="/new sign up.html" target="_main">Donor</a>
+            <a href="/about.html" target="_main">About us</a>
+            <a href="/receptor.html" style="color: black;">Receptor</a>
+            <a href="/Contact.html" target="_main">Contact</a>
+            <button id="signIn">more</button>
+            <i class="ri-menu-line"></i>
         </div>
     </div>
     <div class="main-content">
@@ -28,7 +30,7 @@
         <div class="form">
             <div class="blood">
                 <label for="blood">Blood :</label>
-                <select name="blood" id="selector"> 
+                <select name="blood" id="selector">
                     <option value="select-blood">--select blood--</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -119,130 +121,72 @@
         </div>
     </div>
     <div class="result">
-        <table border="n" style="border-collapse: collapse;">
+        <table id="result-table" border="n" style="border-collapse: collapse;">
             <thead>
-                <tr class="heading" style="height: 25px;">
-                    <th style="width: 5%; height: 20px;">
-                        Sr. number
-                    </th>
-                    <th style="width: 15%; height: 20px;">
-                       Name
-                    </th>
-                    <th style="width: 10%; height: 20px;">
-                       Age
-                    </th>
-                    <th style="width: 10%; height: 20px;">
-                       Gender
-                    </th>
-                    <th style="width: 10%; height: 20px;">
-                        Blood Group
-                    </th>
-                    <th style="width: 11%; height: 20px;">
-                        District
-                    </th>
-                    <th style="width: 14%; height: 20px;">
-                        State
-                    </th>
-                    <th style="width:10%; height: 20px;">
-                        Phone no.
-                    </th>
-                    <th style="width: 20%; height: 20px;">
-                        Email Address
-                    </th>
-                </tr>
+                <!-- Table headers -->
             </thead>
-            <tr id="head" class="data">
-                <td style="width: 5%; height: 10px;">
-                    1
-                </td>
-                <td style="width: 15%; height: 10px;">
-                   Sourav
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    20
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    Female 
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    B+
-                </td>
-                <td style="width: 11%; height: 10px;">
-                    Fatehabad
-                </td>
-                <td style="width: 14%; height: 10px;">
-                    Haryana
-                </td>
-                <td style="width:10%; height: 20px;">
-                    860248492
-                </td>
-                <td style="width: 20%; height: 20px;">
-                    souravgandu@gmail.com
-                </td>
-            </tr>
-            <tr id="head" class="data">
-                <td style="width: 5%; height: 10px;">
-                    2
-                </td>
-                <td style="width: 15%; height: 10px;">
-                   Himanshu
-                </td>
-                <td style="width: 10%; height: 10px;">
-                   21
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    Other 
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    O+
-                </td>
-                <td style="width: 11%; height: 10px;">
-                    Jind
-                </td>
-                <td style="width: 14%; height: 10px;">
-                    Haryana
-                </td>
-                <td style="width:10%; height: 20px;">
-                    9995346814
-                </td>
-                <td style="width: 20%; height: 20px;">
-                    monadarling@gmail.com
-                </td>
-            </tr>
-            <tr id="head" class="data">
-                <td style="width: 5%; height: 10px;">
-                    3
-                </td>
-                <td style="width: 15%; height: 10px;">
-                   Ankit Jhutha
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    23
-                </td>
-                <td style="width: 10%; height: 10px;">
-                    Female 
-                </td>
-                <td style="width: 10%; height: 10px;">
-                   AB+
-                </td>
-                <td style="width: 11%; height: 10px;">
-                    Gohana
-                </td>
-                <td style="width: 14%; height: 10px;">
-                    Haryana
-                </td>
-                <td style="width:10%; height: 20px;">
-                    7894561230
-                </td>
-                <td style="width: 20%; height: 20px;">
-                    mithajhuta
-                </td>
-            </tr>
-            
+            <tbody>
+                <!-- Table rows will be populated by JavaScript -->
+            </tbody>
         </table>
-        
-        
     </div>
-    
+
+
+    <script>
+        // Function to make a GET request
+        function getRequest(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        callback(null, xhr.responseText);
+                    } else {
+                        callback(new Error('Request failed: ' + xhr.status));
+                    }
+                }
+            };
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
+        // Function to render the data in the table
+        function renderTable(data) {
+            var resultTable = document.getElementById('result-table');
+            var tbody = resultTable.getElementsByTagName('tbody')[0];
+            tbody.innerHTML = ''; // Clear existing rows
+
+            data.forEach(function (rowData, index) {
+                var row = document.createElement('tr');
+                row.className = 'data';
+
+                Object.values(rowData).forEach(function (cellData) {
+                    var cell = document.createElement('td');
+                    cell.textContent = cellData;
+                    row.appendChild(cell);
+                });
+
+                tbody.appendChild(row);
+            });
+        }
+
+        // Make the GET request and render the response in the table
+        var apiUrl = 'https://script.googleusercontent.com/macros/echo?user_content_key=6cXM4BEVFCe6ahSNiZGsakq6J9x5cZUI0jpcYEXio3h_lfzk6ii-D0D7rrpokEzzmQNXQEbf7XozE1EqDDngd02mFpYUyM3Cm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNEQTNRb4dje66iNgZ3OHsrOTzlmalIIa6AJry8zRozsWPpJXELsRFXJSW5u-3tdq2rNMo7KLqHTPUwLbfE0rcnABkwXJy1Fzw&lib=MUnyTtTXA_54BqQmvdlp57AZ3bQAJeipN';
+        getRequest(apiUrl, function (error, response) {
+            if (error) {
+                console.error('Error:', error.message);
+                // Display error message or handle the error as needed
+            } else {
+                try {
+                    var data = JSON.parse(response).data;
+                    renderTable(data);
+                } catch (parseError) {
+                    console.error('Error parsing response:', parseError.message);
+                    // Display error message or handle the error as needed
+                }
+            }
+        });
+    </script>
+
 </body>
+
 </html>
