@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recevier</title>
+    <link rel="stylesheet" href="recevier.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+          <img src="/blood_drop_search.gif" alt="logo" />
+        </div>
+        <div class="options">
+          <a href="/index.html" target="_main">Home</a>
+          <a href="/new sign up.html" target="_main">Donor</a>
+          <a href="/about.html" target="_main">About us</a>
+          <a href="/receptor.html" style="color: black;">Receptor</a>
+          <a href="/Contact.html" target="_main">Contact</a>
+          <button id="signIn">more</button>
+          <i class="ri-menu-line"></i>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="heading">
+            <h2>Find Donor</h2>
+        </div>
+        <div class="form">
+            <div class="blood">
+                <label for="blood">Blood :</label>
+                <select name="blood" id="selector"> 
+                    <option value="select-blood">--select blood--</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="A1+">A1+</option>
+                    <option value="A1-">A1-</option>
+                    <option value="A1B+">A1B+</option>
+                    <option value="A1B-">A1B-</option>
+                    <option value="A2+">A2+</option>
+                    <option value="A2-">A2-</option>
+                    <option value="A2B+">A2B+</option>
+                    <option value="A2B-">A2B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="Bombay-blood-group">Bombay blood group</option>
+                    <option value="INRA">INRA</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="district">
+                <label for="district">District :</label>
+                <select name="district" id="by-district">
+                    <option value="select-one">--select district--</option>
+                    <option value="JHAJJAR">JHAJJAR</option>
+                    <option value="ROHTAK">ROHTAK</option>
+                    <option value="REWARI">REWARI</option>
+                    <option value="GURUGRAM">GURUGRAM</option>
+                    <option value="PANIPAT">PANIPAT</option>
+                    <option value="AMBALA">AMBALA</option>
+                    <option value="BHIWANI">BHIWANI</option>
+                    <option value="CHARKHI DADRI">CHARKHI DADRI</option>
+                    <option value="FARIDABAD">FARIDABAD</option>
+                    <option value="FATEHABAD">FATEHABAD</option>
+                    <option value="HISAR">HISAR</option>
+                    <option value="JIND">JIND</option>
+                    <option value="KAITHAL">KAITHAL</option>
+                    <option value="KARNAL">KARNAL</option>
+                    <option value="KURUKSHETRA">KURUKSHETRA</option>
+                    <option value="MAHENDRAGARH">MAHENDRAGARH</option>
+                    <option value="NUH">NUH</option>
+                    <option value="PALWAL">PALWAL</option>
+                    <option value="PANCHKULA">PANCHKULA</option>
+                    <option value="SIRSA">SIRSA</option>
+                    <option value="SONIPAT">SONIPAT</option>
+                    <option value="YAMUNANAGAR">YAMUNANAGAR</option>
+                </select>
+            </div>
+            <div class="state">
+                <label for="state">State :</label>
+                <select name="state" id="by-state">
+                    <option value="select-state">--select state--</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Haryana">Haryana</option>
+                </select>
+            </div>
+        </div>
+        <div class="search-btn">
+            <button class="btn" id="search">Search</button>
+        </div>
+    </div>
+    <div class="result">
+        <table border="n" style="border-collapse: collapse;">
+            <thead>
+                <tr class="heading" style="height: 25px;">
+                    <th style="width: 5%; height: 20px;">
+                        Sr. number
+                    </th>
+                    <th style="width: 15%; height: 20px;">
+                       Name
+                    </th>
+                    <th style="width: 10%; height: 20px;">
+                       Age
+                    </th>
+                    <th style="width: 10%; height: 20px;">
+                       Gender
+                    </th>
+                    <th style="width: 10%; height: 20px;">
+                        Blood Group
+                    </th>
+                    <th style="width: 11%; height: 20px;">
+                        District
+                    </th>
+                    <th style="width: 14%; height: 20px;">
+                        State
+                    </th>
+                    <th style="width:10%; height: 20px;">
+                        Phone no.
+                    </th>
+                    <th style="width: 20%; height: 20px;">
+                        Email Address
+                    </th>
+                </tr>
+            </thead>
+            <tr id="head" class="data">
+                <td style="width: 5%; height: 10px;">
+                    1
+                </td>
+                <td style="width: 15%; height: 10px;">
+                   Sourav
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    20
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    Female 
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    B+
+                </td>
+                <td style="width: 11%; height: 10px;">
+                    Fatehabad
+                </td>
+                <td style="width: 14%; height: 10px;">
+                    Haryana
+                </td>
+                <td style="width:10%; height: 20px;">
+                    860248492
+                </td>
+                <td style="width: 20%; height: 20px;">
+                    souravgandu@gmail.com
+                </td>
+            </tr>
+            <tr id="head" class="data">
+                <td style="width: 5%; height: 10px;">
+                    2
+                </td>
+                <td style="width: 15%; height: 10px;">
+                   Himanshu
+                </td>
+                <td style="width: 10%; height: 10px;">
+                   21
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    Other 
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    O+
+                </td>
+                <td style="width: 11%; height: 10px;">
+                    Jind
+                </td>
+                <td style="width: 14%; height: 10px;">
+                    Haryana
+                </td>
+                <td style="width:10%; height: 20px;">
+                    9995346814
+                </td>
+                <td style="width: 20%; height: 20px;">
+                    monadarling@gmail.com
+                </td>
+            </tr>
+            <tr id="head" class="data">
+                <td style="width: 5%; height: 10px;">
+                    3
+                </td>
+                <td style="width: 15%; height: 10px;">
+                   Ankit Jhutha
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    23
+                </td>
+                <td style="width: 10%; height: 10px;">
+                    Female 
+                </td>
+                <td style="width: 10%; height: 10px;">
+                   AB+
+                </td>
+                <td style="width: 11%; height: 10px;">
+                    Gohana
+                </td>
+                <td style="width: 14%; height: 10px;">
+                    Haryana
+                </td>
+                <td style="width:10%; height: 20px;">
+                    7894561230
+                </td>
+                <td style="width: 20%; height: 20px;">
+                    mithajhuta
+                </td>
+            </tr>
+            
+        </table>
+        
+        
+    </div>
+    
+</body>
+</html>
